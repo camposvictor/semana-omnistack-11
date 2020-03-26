@@ -10,8 +10,10 @@ module.exports = {
       .where('id', id)
       .select('name')
 
-    if(!ong) return res.status(400).json({ error : "No ONG found with this ID" })
+    const [ongName] = ong
 
-    return res.json(ong)
+    if(!ongName) return res.status(400).json({ error : "No ONG found with this ID" })
+
+    return res.json(ongName)
   }
 }
